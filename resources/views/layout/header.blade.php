@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <title>Mental Minder</title>
+    <title>Mental Minder Website</title>
 </head>
 <body>
     <script src="js/bootstrap.js"></script>
