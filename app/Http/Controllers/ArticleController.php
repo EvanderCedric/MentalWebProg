@@ -20,6 +20,33 @@ class ArticleController extends Controller
          return view('catalog', compact('article'));
      }
 
+     public function artindex($id)
+     {
+         // Fetch article by ID
+         $article = Article::findOrFail($id);
+     
+         // Load the article content from the JSON file
+         $content = json_decode(file_get_contents(resource_path('views/articles/content/article_content.json')), true);
+     
+         // Check if the article has a 'content' field and if it matches any of the JSON keys
+         $contentKey = 'artcontent' . $id;  // Assuming you match the article ID with content keys
+     
+         if (isset($content[$contentKey])) {
+             // Assign the article content from the JSON
+             $article->content = $content[$contentKey];
+         }
+     
+         // Determine if the article has custom content
+         if (!empty($article->content)) {
+             // Use the 'showart_filled' view for articles with content
+             return view('articles.showart_filled', compact('article'));
+         } else {
+             // Fallback to 'showart_default' for articles without content
+             return view('articles.showart_default', compact('article'));
+         }
+     }
+     
+
      public function checkDB(){
         $article = new Article;
         
@@ -55,5 +82,51 @@ class ArticleController extends Controller
         dump($article);
        }
 
+
+
+
+
+// Search Control
+
+
+       public function showCatalog(Request $request)
+       {
+           $search = $request->input('search');
+       
+           // If there is a search term, filter the articles based on title
+           if ($search) {
+               $article = Article::where('title', 'like', '%' . $search . '%')->get();
+           } else {
+               // Otherwise, show all articles
+               $article = Article::all();
+           }
+       
+           // Pass the articles to the view
+           return view('catalog', compact('articles', 'search'));
+       }
+   
+       public function home(Request $request)
+       {
+           $search = $request->get('search', '');
+           return view('home', compact('search'));
+       }
+   
+       public function catalog(Request $request)
+       {
+           $search = $request->get('search', '');
+           return view('catalog', compact('search'));
+       }
+   
+       public function aboutus(Request $request)
+       {
+           $search = $request->get('search', '');
+           return view('aboutus', compact('search'));
+       }
+   
+       public function contactus(Request $request)
+       {
+           $search = $request->get('search', '');
+           return view('contactus', compact('search'));
+       }
        
 }
