@@ -11,18 +11,14 @@
 </head>
 <body>
     <div class="content">
-        <!-- Banner -->
-        <div class="banner d-flex align-items-center justify-content-center text-white">
-            <h1>Welcome to Our Site</h1>
-        </div>
-
-
+ 
 
         <!-- About Section -->
         <section id="about" class="section text-center custom-bg-greyish">
-            <div class="container">
-                <h3>About Us</h3>
-                <p>We are dedicated to supporting mental health and wellness, providing a safe space for growth and healing.</p>
+            <div class="container d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                        Coming soon
+                    </div>
             </div>
         </section>
     </div>

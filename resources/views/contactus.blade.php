@@ -11,10 +11,7 @@
 </head>
 <body>
     <div class="content">
-        <!-- Banner -->
-        <div class="banner d-flex align-items-center justify-content-center text-white">
-            <h1>Welcome to Our Site</h1>
-        </div>
+
 
         <!-- Contact Section -->
         <section id="contact" class="section custom-bg-greyish text-center ">

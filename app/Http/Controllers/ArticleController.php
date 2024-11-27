@@ -89,21 +89,20 @@ class ArticleController extends Controller
 // Search Control
 
 
-       public function showCatalog(Request $request)
-       {
-           $search = $request->input('search');
-       
-           // If there is a search term, filter the articles based on title
-           if ($search) {
-               $article = Article::where('title', 'like', '%' . $search . '%')->get();
-           } else {
-               // Otherwise, show all articles
-               $article = Article::all();
-           }
-       
-           // Pass the articles to the view
-           return view('catalog', compact('articles', 'search'));
-       }
+public function showCatalog(Request $request)
+{
+    $search = $request->input('search');
+
+    $articles = Article::query()
+        ->when($search, function ($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%');
+        })
+        ->latest()
+        ->get();
+
+    return view('catalog', compact('articles', 'search'));
+}
+
    
        public function home(Request $request)
        {
@@ -117,10 +116,10 @@ class ArticleController extends Controller
            return view('catalog', compact('search'));
        }
    
-       public function aboutus(Request $request)
+       public function survey(Request $request)
        {
            $search = $request->get('search', '');
-           return view('aboutus', compact('search'));
+           return view('survey', compact('search'));
        }
    
        public function contactus(Request $request)

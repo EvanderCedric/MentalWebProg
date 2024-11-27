@@ -10,16 +10,13 @@
 </head>
 <body class="custom-bg">
     <div class="content">
-        <!-- Banner -->
-        <div class="banner d-flex align-items-center justify-content-center text-white">
-            <h1>Welcome to Our Site</h1>
-        </div>
 
-        <!-- Services Section -->
+
+        <!-- Home Section -->
         <section id="services" class="section custom-bg-greyish text-center">
             <div class="container">
-                <h3>Our Services</h3>
-                <p>Explore our range of mental health services designed to support your wellness journey.</p>
+                <h3>About Us</h3>
+                <p>We are dedicated to supporting mental health and wellness, providing a safe space for growth and healing.</p>
                 <div class="row">
                     <div class="col-md-4">
                         <h5>Individual Counseling</h5>

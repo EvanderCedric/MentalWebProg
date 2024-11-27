@@ -10,15 +10,19 @@ Route::get('/home', function () {
     return view('home');
 });
 
-Route::get('/catalog',[\App\Http\Controllers\ArticleController::class, 'index'])->name('catalog');;
+Route::get('/catalog', [\App\Http\Controllers\ArticleController::class, 'showCatalog'])->name('catalog');
 
 Route::get('/contactus', function () {
     return view('contactus');
 });
 
 
-Route::get('/aboutus', function () {
-    return view('aboutus');
+Route::get('/survey', function () {
+    return view('survey');
+});
+
+Route::get('/surveypage', function () {
+    return view('surveypage');
 });
 
 // In web.php (routes)
