@@ -65,10 +65,7 @@
         </div>
     </header>
 
-    <!-- Banner -->
-    <div class="banner d-flex align-items-center justify-content-center text-white">
-    </div>
-
+  
     <!-- Main Content Area -->
     <div class="container">
         @yield('content')

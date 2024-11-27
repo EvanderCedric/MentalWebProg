@@ -12,6 +12,9 @@
 </head>
 <body>
     <div class="content">
+        <!-- Banner -->
+        <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
+
         <div class="container py-5">
             <h2 class="mb-4">{{ $article->title }}</h2>
             <div class="text-center mb-4">

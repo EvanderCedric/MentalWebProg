@@ -11,7 +11,9 @@
 </head>
 <body>
     <div class="content">
- 
+    <!-- Banner -->
+    <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
+
 
         <!-- Survey Section -->
         <section id="about" class="section text-center custom-bg-greyish">

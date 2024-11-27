@@ -10,6 +10,8 @@
 </head>
 <body class="custom-bg">
     <div class="content">
+    <!-- Banner -->
+    <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
 
 
         <!-- Home Section -->
