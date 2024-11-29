@@ -13,7 +13,12 @@
 <body>
     <div class="content">
         <!-- Banner -->
-        <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
+        <div class="banner d-flex align-items-center justify-content-center text-white" style="background-color: #007BFF;"></div>
+
+        <!-- Back Button -->
+        <div class="d-flex justify-content-start text-center" style="margin-top: 10px; margin-left: 10px;">
+            <a href="{{ url('/catalog') }}" class="btn btn-secondary">Back to Catalog</a>
+        </div>
 
         <div class="container py-5">
             <h2 class="mb-4">{{ $article->title }}</h2>

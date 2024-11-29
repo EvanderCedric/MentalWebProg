@@ -13,7 +13,7 @@
     <div class="content">
 
     <!-- Banner -->
-    <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
+    <div class="banner d-flex align-items-center justify-content-center text-white" style="background-color: #007BFF;"></div>
 
         <!-- Contact Section -->
         <section id="contact" class="section custom-bg-greyish text-center ">

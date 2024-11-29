@@ -11,7 +11,7 @@
 <body class="custom-bg">
     <div class="content">
     <!-- Banner -->
-    <div class="banner d-flex align-items-center justify-content-center text-white" style="height: 300px; background-color: #007BFF;"></div>
+    <div class="banner d-flex align-items-center justify-content-center text-white" style= background-color: #007BFF;"></div>
 
 
         <!-- Home Section -->
@@ -21,8 +21,8 @@
                 <p>We are dedicated to supporting mental health and wellness, providing a safe space for growth and healing.</p>
                 <div class="row">
                     <div class="col-md-4">
-                        <h5>Individual Counseling</h5>
-                        <p>Personalized sessions with a licensed therapist.</p>
+                        <h5>Catalog</h5>
+                        <p>We list the known mental health</p>
                     </div>
                     <div class="col-md-4">
                         <h5>Group Therapy</h5>

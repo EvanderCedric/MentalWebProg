@@ -2,31 +2,26 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/home', function () {
-    return view('home');
-});
+//Navigation Bar
 
+Route::get('/', function () {return view('home');});
+Route::get('/home', function () {return view('home');});
 Route::get('/catalog', [\App\Http\Controllers\ArticleController::class, 'showCatalog'])->name('catalog');
+Route::get('/survey', function () {return view('survey');});
+Route::get('/surveypage', function () {return view('surveypage');});
+Route::get('/contactus', function () {return view('contactus');});
 
-Route::get('/contactus', function () {
-    return view('contactus');
-});
 
 
-Route::get('/survey', function () {
-    return view('survey');
-});
+//Login Signup
+Route::get('/login', [\App\Http\Controllers\FormController::class, 'login'])->name('login');
+Route::get('/signup', [\App\Http\Controllers\FormController::class, 'signup'])->name('signup');
 
-Route::get('/surveypage', function () {
-    return view('surveypage');
-});
+//Users
 
-// In web.php (routes)
 
+// Articles
 Route::prefix('articles')->group(function () {
     Route::get('/{id}', [\App\Http\Controllers\ArticleController::class, 'artindex'])->name('articles.show');
 });
@@ -34,7 +29,7 @@ Route::prefix('articles')->group(function () {
 
 
 
-
+//Otherrs
 Route::get('/ww', function () {
     return view('welcome');
 });

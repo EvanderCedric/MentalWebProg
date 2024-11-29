@@ -46,48 +46,8 @@ class ArticleController extends Controller
          }
      }
      
-
-     public function checkDB(){
-        $article = new Article;
-        
-        dump($article);
-    }
-
-    public function insert(){
-        $article = new Article;
-
-        
-        $article->save();
-              
-        dump($article);
-    }
-
-    public function update()
-    {
-        $article = Article::find(1);
-        if ($article) {
-
-    
-            $article->save(); 
-        }
-        
-        dump($article);
-    }
-    
-
-    public function delete(){
-        $article = Article::find(1);
-        $article->delete();
-              
-        dump($article);
-       }
-
-
-
-
-
+     
 // Search Control
-
 
 public function showCatalog(Request $request)
 {
@@ -104,28 +64,6 @@ public function showCatalog(Request $request)
 }
 
    
-       public function home(Request $request)
-       {
-           $search = $request->get('search', '');
-           return view('home', compact('search'));
-       }
-   
-       public function catalog(Request $request)
-       {
-           $search = $request->get('search', '');
-           return view('catalog', compact('search'));
-       }
-   
-       public function survey(Request $request)
-       {
-           $search = $request->get('search', '');
-           return view('survey', compact('search'));
-       }
-   
-       public function contactus(Request $request)
-       {
-           $search = $request->get('search', '');
-           return view('contactus', compact('search'));
-       }
+       
        
 }
