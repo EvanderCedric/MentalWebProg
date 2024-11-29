@@ -27,7 +27,7 @@
                         <p>No articles found for your search.</p>
             @else
                 @foreach($articles as $art)
-                    <div class="card mb-4 shadow-sm border-0 rounded" style="max-width: 100%; padding: 1rem;">
+                    <div class="card mb-4 shadow-lg border-0 rounded" style="max-width: 100%; padding: 1rem;">
                         <div class="row g-0 align-items-center">
                             <!-- Image Section -->
                             <div class="col-md-4 position-relative overflow-hidden" style="height: 200px;">
