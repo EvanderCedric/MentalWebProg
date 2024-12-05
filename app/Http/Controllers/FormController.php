@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class FormController extends Controller
 {
@@ -36,7 +37,7 @@ class FormController extends Controller
       'alamat' => '',
    ]);
 
-   $mahasiswa = new Mahasiswa();
+   $mahasiswa = new User();
    $mahasiswa->nim = $validateData['nim'];
    $mahasiswa->nama = $validateData['nama'];
    $mahasiswa->email = $validateData['email'];
@@ -52,20 +53,20 @@ class FormController extends Controller
 
  public function read()
  {
-   $mahasiswas = Mahasiswa::all();
+   $mahasiswas = User::all();
    return view('mahasiswa.read', ['mahasiswas' => $mahasiswas]);
  }
 
 
  public function edit($id)
  {
-     $mahasiswa = Mahasiswa::findOrFail($id); 
+     $mahasiswa = User::findOrFail($id); 
      return view('mahasiswa.edit', ['mahasiswa' => $mahasiswa]);
  }
  
  public function update(Request $request, $id)
 {
-    $mahasiswa = Mahasiswa::findOrFail($id);
+    $mahasiswa = User::findOrFail($id);
     $validateData = $request->validate([
         'nim' => 'required|size:8|unique:mahasiswas,nim,' . $id,
         'nama' => 'required|min:3|max:50',
@@ -80,7 +81,7 @@ class FormController extends Controller
 }
 
 
-public function destroy(Mahasiswa $mahasiswa)
+public function destroy(User $mahasiswa)
 {
   $mahasiswa->delete();
   return redirect()->route('mahasiswas.read')
