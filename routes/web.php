@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SurveyController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,7 +11,8 @@ Route::get('/home', function () {return view('home');});
 Route::get('/catalog', [\App\Http\Controllers\ArticleController::class, 'showCatalog'])->name('catalog');
 Route::get('/survey', function () {return view('survey');});
 Route::get('/surveypage', function () {return view('surveypage');});
-Route::get('/contactus', function () {return view('contactus');});
+
+Route::get('/contactus', [\App\Http\Controllers\ExpertContactController::class, 'index'])->name('contactus');
 
 
 
@@ -33,4 +35,7 @@ Route::prefix('articles')->group(function () {
 Route::get('/ww', function () {
     return view('welcome');
 });
+
+//Survey
+Route::get('/surveypage', [SurveyController::class,'index']);
 

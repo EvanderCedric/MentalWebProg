@@ -20,14 +20,17 @@
                 <h3>About Us</h3>
                 <p>We are dedicated to supporting mental health and wellness, providing a safe space for growth and healing.</p>
                 <div class="row">
+
                     <div class="col-md-4">
                         <h5>Catalog</h5>
                         <p>We list the known mental health</p>
                     </div>
+
                     <div class="col-md-4">
                         <h5>Group Therapy</h5>
                         <p>Join a supportive community in group settings.</p>
                     </div>
+                    
                     <div class="col-md-4">
                         <h5>Online Workshops</h5>
                         <p>Engaging workshops focused on mental wellness.</p>
