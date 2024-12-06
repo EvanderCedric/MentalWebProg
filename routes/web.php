@@ -16,9 +16,6 @@ Route::get('/contactus', [\App\Http\Controllers\ExpertContactController::class, 
 
 
 
-//Login Signup
-Route::get('/login', [\App\Http\Controllers\FormController::class, 'login'])->name('login');
-Route::get('/signup', [\App\Http\Controllers\FormController::class, 'signup'])->name('signup');
 
 //Users
 
@@ -39,3 +36,19 @@ Route::get('/ww', function () {
 //Survey
 Route::get('/surveypage', [SurveyController::class,'index']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -1,6 +1,5 @@
 {{-- resources/views/articles/showart_default.blade.php --}}
-@include('layout.header')
-
+@include('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>

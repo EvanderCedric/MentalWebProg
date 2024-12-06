@@ -1,4 +1,4 @@
-@include('layout.header')
+@include('layouts.app')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,7 @@
                                     <h5 class="card-title">{{ $exp->name }}</h5>
                                     <p class="card-text">{{ $exp->desc}}</p>
                                     </p>
-                                    <a href="{{$exp->link}}" class="btn btn-primary mt-auto">Read More</a>
+                                    <a href="{{$exp->link}}" class="btn btn-primary mt-auto">Visit Zoom</a>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-@include('layout.header')
+@include('layouts.app')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,6 @@
 
         <!-- Banner -->
         <div class="banner d-flex align-items-center justify-content-center text-white py-5" style="background-color: #007BFF;">
-            <h1 class="display-4">Mental Health Survey</h1>
         </div>
 
         <!-- Survey Form Section -->

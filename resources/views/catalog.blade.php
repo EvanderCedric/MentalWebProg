@@ -1,4 +1,4 @@
-@include('layout.header')
+@include('layouts.app')
 
 <!DOCTYPE html>
 <html lang="en">
