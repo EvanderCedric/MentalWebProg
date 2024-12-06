@@ -34,20 +34,16 @@ Route::get('/ww', function () {
 });
 
 //Survey
-Route::get('/surveypage', [SurveyController::class,'index']);
+
+Route::get('/surveypage', [SurveyController::class, 'index'])->name('survey.index');  
+Route::post('/surveypage', [SurveyController::class, 'store'])->name('survey.store');  
+Route::get('/surveyresults', [SurveyController::class, 'results'])->name('survey.results');  
+
+// Route to view responses for a specific question
+Route::get('/question/{questionId}/responses', [SurveyController::class, 'viewResponse'])->name('survey.viewResponses');
 
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

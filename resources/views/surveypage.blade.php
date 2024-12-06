@@ -24,10 +24,10 @@
 
                 <!-- Back Button -->
                 <div class="d-flex justify-content-start mb-4">
-                    <a href="{{ url('/survey') }}" class="btn btn-outline-primary">Back</a>
+                    <a href="{{ route('survey.index') }}" class="btn btn-outline-primary">Back</a>
                 </div>
 
-                <form method="POST" action="/survey" class="shadow p-4 rounded bg-light">
+                <form method="POST" action="{{ route('survey.store') }}" class="shadow p-4 rounded bg-light">
                     @csrf
 
                     @foreach ($questions as $question)
@@ -41,6 +41,9 @@
                                 <option value="4">4 - Often</option>
                                 <option value="5">5 - Always</option>
                             </select>
+                            @if ($errors->has("responses.{$question->id}"))
+                                <div class="text-danger">{{ $errors->first("responses.{$question->id}") }}</div>
+                            @endif
                         </div>
                     @endforeach
 
@@ -53,13 +56,6 @@
         </section>
 
     </div>
-
-    <!-- Footer -->
-    @include('layout.footer')
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
 
     <!-- Footer -->
     @include('layout.footer')
