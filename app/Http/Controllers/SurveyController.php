@@ -8,6 +8,7 @@ use App\Models\Response;
 
 class SurveyController extends Controller
 {
+    // Show the survey form
     public function index()
     {
         $questions = Question::all();  // Retrieve questions from the database
@@ -23,8 +24,14 @@ class SurveyController extends Controller
         ]);
 
         // Store the responses
-        // (You can store them in the database or process them as needed)
+        foreach ($validated['responses'] as $questionId => $answer) {
+            Response::create([
+                'question_id' => $questionId,
+                'answer' => $answer,
+            ]);
+        }
 
+        // Redirect to the results page
         return redirect()->route('survey.results')->with('success', 'Thank you for completing the survey!');
     }
 
@@ -34,6 +41,8 @@ class SurveyController extends Controller
         // Display the results page
         return view('surveyresults');
     }
+
+    // View responses for a specific question
     public function viewResponse($questionId)
     {
         // Retrieve the question and its responses
