@@ -32,7 +32,7 @@
                     <!-- Navigation Links -->
                     <ul class="nav me-lg-auto mb-2 justify-content-center mb-md-0 align-items-center">
                         <li class="nav-item">
-                            <a href="{{ url('/home' . (request('search') ? '?search=' . request('search') : '')) }}" 
+                            <a href="{{ url('/' . (request('search') ? '?search=' . request('search') : '')) }}" 
                             class="nav-link px-3 {{ Request::is('home') ? 'fw-bold text-secondary' : 'text-white' }}"
                             style="font-size: 24px; font-weight: bold;">
                                 Home
@@ -73,31 +73,36 @@
 
                     <!-- Authentication Links -->
                     <div class="text-end">
-                        @guest
-                            <button type="button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline-light me-2">Login</button>
-                            <button type="button" onclick="window.location.href='{{ route('register') }}'" class="btn btn-warning">Sign-up</button>
-                        @else
-                            <div class="dropdown">
-                                <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }}
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                    <li>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        @endguest
+                    @guest
+                        <button type="button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline-light me-2">Login</button>
+                        <button type="button" onclick="window.location.href='{{ route('register') }}'" class="btn btn-warning">Sign-up</button>
+                    @else
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @endguest
+
                     </div>
                 </div>
             </div>
         </header>
+
+        <main>
+            @yield('content')
+        </main>
     </div>
 
     <script src="js/bootstrap.js"></script>

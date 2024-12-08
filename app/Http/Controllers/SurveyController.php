@@ -11,8 +11,8 @@ class SurveyController extends Controller
     // Show the survey form
     public function index()
     {
-        $questions = Question::all();  // Retrieve questions from the database
-        return view('survey', compact('questions'));
+        $questions = Question::all();
+        return view('surveypage', compact('questions'));
     }
 
     // Handle the form submission
@@ -20,18 +20,14 @@ class SurveyController extends Controller
     {
         // Validate and store the responses
         $validated = $request->validate([
-            'responses.*' => 'required|in:1,2,3,4,5', // Ensure answers are within range
+            'responses.*' => 'required|in:1,2,3,4,5', 
         ]);
-
-        // Store the responses
         foreach ($validated['responses'] as $questionId => $answer) {
             Response::create([
                 'question_id' => $questionId,
                 'answer' => $answer,
             ]);
         }
-
-        // Redirect to the results page
         return redirect()->route('survey.results')->with('success', 'Thank you for completing the survey!');
     }
 

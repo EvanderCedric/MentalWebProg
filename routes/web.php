@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Route;
 
 //Navigation Bar
 
-Route::get('/', function () {return view('home');});
-Route::get('/home', function () {return view('home');});
+Route::get('/', [\App\Http\Controllers\ArticleController::class, 'index'])->name('home');
+Route::get('/home', [\App\Http\Controllers\ArticleController::class, 'index'])->name('home');
+
 Route::get('/catalog', [\App\Http\Controllers\ArticleController::class, 'showCatalog'])->name('catalog');
 Route::get('/survey', function () {return view('survey');});
 Route::get('/surveypage', function () {return view('surveypage');});
@@ -15,9 +16,6 @@ Route::get('/surveypage', function () {return view('surveypage');});
 Route::get('/contactus', [\App\Http\Controllers\ExpertContactController::class, 'index'])->name('contactus');
 
 
-
-
-//Users
 
 
 // Articles
@@ -29,8 +27,11 @@ Route::prefix('articles')->group(function () {
 
 
 //Otherrs
-Route::get('/ww', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('auth.login');
+});
+Route::get('/register', function () {
+    return view('auth.register');
 });
 
 //Survey
@@ -44,6 +45,11 @@ Route::get('/question/{questionId}/responses', [SurveyController::class, 'viewRe
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Auth::routes();
 

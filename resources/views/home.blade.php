@@ -15,32 +15,58 @@
 
 
         <!-- Home Section -->
-        <section id="services" class="section custom-bg-greyish text-center">
+        <section id="about" class="section custom-bg-greyish text-center">
             <div class="container">
-                <h3>About Us</h3>
-                <p>We are dedicated to supporting mental health and wellness, providing a safe space for growth and healing.</p>
+                <h3 class="mb-4">About Us</h3>
+                <p class="mb-5">
+                    Our mission is to prioritize mental health and wellness by providing resources, tools, and a supportive community. We aim to create a safe and nurturing environment where individuals can thrive emotionally and mentally.
+                </p>
                 <div class="row">
-
-                    <div class="col-md-4">
-                        <h5>Catalog</h5>
-                        <p>We list the known mental health</p>
+                    <div class="col-md-6">
+                        <div class="card p-4 border-0 shadow-sm">
+                            <h5 class="mb-3">Our Vision</h5>
+                            <p>
+                                To be a beacon of hope and healing by empowering individuals to embrace their mental health journey. We aspire to break the stigma surrounding mental health and foster a world where seeking help is a sign of strength.
+                            </p>
+                        </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <h5>Group Therapy</h5>
-                        <p>Join a supportive community in group settings.</p>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <h5>Online Workshops</h5>
-                        <p>Engaging workshops focused on mental wellness.</p>
+                    <div class="col-md-6">
+                        <div class="card p-4 border-0 shadow-sm">
+                            <h5 class="mb-3">Our Mission</h5>
+                            <p>
+                                To connect individuals with the resources they need for personal growth and healing. Through our supportive community, group activities, and professional guidance, we strive to make mental health care accessible and impactful for everyone.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+    <div class="container mt-5">
+    <h4 class="mb-4 text-center">Mental Blogs</h4>
+    <div class="row justify-content-center">
+        @foreach($article as $art)
+            <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                <div class="card shadow-sm border-0">
+                    <div class="position-relative overflow-hidden" style="height: 200px;">
+                        <img src="{{ $art->image }}" class="img-fluid w-100 h-100" alt="Top Article" style="object-fit: cover; object-position: center;">
+                    </div>
+                    <div class="card-body text-start d-flex flex-column">
+                        <h5 class="card-title">{{ $art->title }}</h5>
+                        <p class="card-text text-truncate" style="max-height: 3rem; overflow: hidden;">
+                            {{ $art->desc }}
+                        </p>
+                        <a href="{{ url('/articles/' . $art->id) }}" class="btn btn-outline-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+
     <!-- Footer -->
-    @include('layout.footer')
+    @include('layouts.footer')
 </body>
 </html>

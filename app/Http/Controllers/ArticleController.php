@@ -16,8 +16,14 @@ class ArticleController extends Controller
 
      public function index()
      {
-         $article = Article::latest()->get();
-         return view('catalog', compact('article'));
+        $article = Article::latest()->take(3)->get();
+         return view('home', compact('article'));
+     }
+
+     public function indexhome()
+     {
+        $article = Article::latest()->take(3)->get();
+         return view('home', compact('article'));
      }
 
      public function artindex($id)
