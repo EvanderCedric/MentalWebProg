@@ -18,12 +18,11 @@ class SurveyController extends Controller
     // Handle the form submission
     public function store(Request $request)
     {
-        // Validate and store the responses
+        dd($request->all());
         $validated = $request->validate([
             'responses.*' => 'required|in:1,2,3,4,5',
-        ]);        
+        ]);
         foreach ($validated['responses'] as $questionId => $answer) {
-            dd($questionId, $answer);
             Response::create([
                 'question_id' => $questionId,
                 'answer' => $answer,
@@ -31,6 +30,7 @@ class SurveyController extends Controller
         }
         return redirect()->route('surveyresults')->with('success', 'Thank you for completing the survey!');
     }
+    
 
     // Show the survey results
     public function results()

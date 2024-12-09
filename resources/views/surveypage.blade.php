@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <title>Survey</title>
 </head>
@@ -24,23 +24,38 @@
 
                 <!-- Back Button -->
                 <div class="d-flex justify-content-start mb-4">
-                    <a href="{{ route('survey.index') }}" class="btn btn-outline-primary">Back</a>
+                    <a href="/survey" class="btn btn-outline-primary">Back</a>
                 </div>
 
-                <form method="POST" action="{{ route('survey.store') }}" class="shadow p-4 rounded bg-light">
+                <form method="POST" action="{{ route('surveypage.store') }}" class="shadow p-4 rounded bg-light">
                     @csrf
 
                     @foreach ($questions as $question)
                         <div class="mb-4">
-                            <label for="question{{ $question->id }}" class="form-label">{{ $question->text }}</label>
-                            <select name="responses[{{ $question->id }}]" id="question{{ $question->id }}" class="form-select" required>
-                                <option value="" disabled selected>Select your answer</option>
-                                <option value="1">1 - Never</option>
-                                <option value="2">2 - Rarely</option>
-                                <option value="3">3 - Sometimes</option>
-                                <option value="4">4 - Often</option>
-                                <option value="5">5 - Always</option>
-                            </select>
+                        <label class="form-label d-block mb-3 fw-bold">{{ $question->text }}</label>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-check d-flex flex-column align-items-center mx-2">
+                                <input class="form-check-input mb-1" type="radio" name="responses[{{ $question->id }}]" id="question{{ $question->id }}-1" value="1" required>
+                                <label class="form-check-label" for="question{{ $question->id }}-1">Never</label>
+                            </div>
+                            <div class="form-check d-flex flex-column align-items-center mx-2">
+                                <input class="form-check-input mb-1" type="radio" name="responses[{{ $question->id }}]" id="question{{ $question->id }}-2" value="2" required>
+                                <label class="form-check-label" for="question{{ $question->id }}-2">Rarely</label>
+                            </div>
+                            <div class="form-check d-flex flex-column align-items-center mx-2">
+                                <input class="form-check-input mb-1" type="radio" name="responses[{{ $question->id }}]" id="question{{ $question->id }}-3" value="3" required>
+                                <label class="form-check-label" for="question{{ $question->id }}-3">Sometimes</label>
+                            </div>
+                            <div class="form-check d-flex flex-column align-items-center mx-2">
+                                <input class="form-check-input mb-1" type="radio" name="responses[{{ $question->id }}]" id="question{{ $question->id }}-4" value="4" required>
+                                <label class="form-check-label" for="question{{ $question->id }}-4">Often</label>
+                            </div>
+                            <div class="form-check d-flex flex-column align-items-center mx-2">
+                                <input class="form-check-input mb-1" type="radio" name="responses[{{ $question->id }}]" id="question{{ $question->id }}-5" value="5" required>
+                                <label class="form-check-label" for="question{{ $question->id }}-5">Always</label>
+                            </div>
+                        </div>
+
                             @if ($errors->has("responses.{$question->id}"))
                                 <div class="text-danger">{{ $errors->first("responses.{$question->id}") }}</div>
                             @endif
@@ -52,6 +67,8 @@
                         <button type="submit" class="btn btn-success btn-lg">Submit</button>
                     </div>
                 </form>
+
+                
             </div>
         </section>
 
@@ -60,6 +77,6 @@
     <!-- Footer -->
     @include('layouts.footer')
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

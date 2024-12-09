@@ -4,11 +4,13 @@ XAMP must have Apache and phpAdmin started
 
 
 COPY THIS ALL IN THE TERMINAL
-php artisan migrate
-php artisan migrate:fresh
-php artisan db:seed --class=ArticleSeeder
-php artisan db:seed --class=ExpertContactSeeder
-php artisan db:seed --class=QuestionSeeder
 
+    php artisan migrate
+    php artisan migrate:fresh
+
+    php artisan db:seed --class=ArticleSeeder
+    php artisan db:seed --class=ExpertContactSeeder
+    php artisan db:seed --class=QuestionSeeder
+    php artisan db:seed --class=UserSeeder
 
 php artisan serve

@@ -36,8 +36,8 @@ Route::get('/register', function () {
 
 //Survey
 
-Route::get('/surveypage', [SurveyController::class, 'index'])->name('surveypage');  
-Route::post('/surveypage', [SurveyController::class, 'store'])->name('surveypage');  
+Route::get('/surveypage', [SurveyController::class, 'index'])->name('surveypage.index');  
+Route::post('/surveypage', [SurveyController::class, 'store'])->name('surveypage.store');  
 Route::get('/surveyresults', [SurveyController::class, 'results'])->name('surveyresults');  
 
 // Route to view responses for a specific question
@@ -45,9 +45,22 @@ Route::get('/question/{questionId}/responses', [SurveyController::class, 'viewRe
 
 
 
-
-
+//Auth
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+
+Route::middleware('auth')->group(function () {
+    // Admin Routes
+    Route::middleware('can:is-admin')->group(function () {
+        Route::get('/admin/users', [App\Http\Controllers\UserController::class, 'index'])->name('admin.users.index'); // User management
+        Route::delete('/admin/users/{id}', [App\Http\Controllers\UserController::class, 'destroy'])->name('admin.users.destroy'); // Delete user
+        Route::get('/admin/table', [App\Http\Controllers\UserController::class, 'index'])->name('admin.table'); // Example admin table
+    });
+
+    // User Profile Routes
+    Route::get('/profile/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('profile.edit'); // Edit profile
+    Route::put('/profile/update', [App\Http\Controllers\UserController::class, 'update'])->name('profile.update'); // Update profile
+});

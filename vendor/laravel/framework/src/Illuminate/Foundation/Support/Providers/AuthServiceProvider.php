@@ -21,9 +21,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->booting(function () {
-            $this->registerPolicies();
-        });
+        // Register any application services here
     }
 
     /**
@@ -47,4 +45,21 @@ class AuthServiceProvider extends ServiceProvider
     {
         return $this->policies;
     }
+
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+
+    public function boot()
+    {
+        $this->registerPolicies();
+    
+        // Gate for checking if user is admin
+        Gate::define('is-admin', function ($user) {
+            return $user->is_admin;
+        });
+    }
+    
 }

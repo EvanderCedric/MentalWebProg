@@ -42,4 +42,4 @@
     </div>
 
     <!-- Footer -->
-    @include('layout.footer')
+    @include('layouts.footer')

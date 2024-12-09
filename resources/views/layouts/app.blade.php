@@ -17,6 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -77,22 +78,38 @@
                         <button type="button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline-light me-2">Login</button>
                         <button type="button" onclick="window.location.href='{{ route('register') }}'" class="btn btn-warning">Sign-up</button>
                     @else
-                        <div class="dropdown">
-                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->name }}
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            @auth
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    <a class="dropdown-item">Status: {{ Auth::user()->is_admin ? 'Admin' : 'User' }}</a>
                                 </li>
-                            </ul>
-                        </div>
+                            @endauth
+                            @if(Auth::user()->is_admin)
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.table') }}">Admin Table</a>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+
                     @endguest
 
                     </div>
