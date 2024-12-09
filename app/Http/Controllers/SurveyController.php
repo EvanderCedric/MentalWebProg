@@ -14,37 +14,40 @@ class SurveyController extends Controller
         $questions = Question::all();
         return view('surveypage', compact('questions'));
     }
-
+    
     // Handle the form submission
     public function store(Request $request)
     {
         // Validate and store the responses
         $validated = $request->validate([
-            'responses.*' => 'required|in:1,2,3,4,5', 
-        ]);
+            'responses.*' => 'required|in:1,2,3,4,5',
+        ]);        
         foreach ($validated['responses'] as $questionId => $answer) {
+            dd($questionId, $answer);
             Response::create([
                 'question_id' => $questionId,
                 'answer' => $answer,
             ]);
         }
-        return redirect()->route('survey.results')->with('success', 'Thank you for completing the survey!');
+        return redirect()->route('surveyresults')->with('success', 'Thank you for completing the survey!');
     }
 
     // Show the survey results
     public function results()
     {
-        // Display the results page
-        return view('surveyresults');
+        // Fetch all responses and calculate the average for each question
+        $questions = Question::with('responses')->get();
+    
+        $responses = $questions->map(function ($question) {
+            // Calculate average response for each question
+            $averageResponse = $question->responses->avg('answer');
+            return [
+                'question' => $question,
+                'average_response' => round($averageResponse, 2), // Round to 2 decimal places
+            ];
+        });
+    
+        return view('surveyresults', compact('responses'));
     }
-
-    // View responses for a specific question
-    public function viewResponse($questionId)
-    {
-        // Retrieve the question and its responses
-        $question = Question::findOrFail($questionId);
-        $responses = Response::where('question_id', $questionId)->get();
-
-        return view('view-response', compact('question', 'responses'));
-    }
+    
 }

@@ -36,12 +36,13 @@ Route::get('/register', function () {
 
 //Survey
 
-Route::get('/surveypage', [SurveyController::class, 'index'])->name('survey.index');  
-Route::post('/surveypage', [SurveyController::class, 'store'])->name('survey.store');  
-Route::get('/surveyresults', [SurveyController::class, 'results'])->name('survey.results');  
+Route::get('/surveypage', [SurveyController::class, 'index'])->name('surveypage');  
+Route::post('/surveypage', [SurveyController::class, 'store'])->name('surveypage');  
+Route::get('/surveyresults', [SurveyController::class, 'results'])->name('surveyresults');  
 
 // Route to view responses for a specific question
 Route::get('/question/{questionId}/responses', [SurveyController::class, 'viewResponse'])->name('survey.viewResponses');
+
 
 
 
@@ -50,7 +51,3 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

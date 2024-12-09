@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger(('question_id'));
-            $table->integer('score');
+            $table->foreignId('question_id')->constrained()->onDelete('cascade');
+            $table->integer('answer'); 
             $table->timestamps();
-
-            $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
         });
     }
 
