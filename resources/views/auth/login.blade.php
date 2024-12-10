@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="d-flex justify-content-center align-items-center vh-100">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 
     <!-- Back Button -->
     <div class="d-flex justify-content-start text-center" style="position: fixed; top: 110px; left: 10px; z-index: 1000;">
@@ -29,8 +31,13 @@
 
                 <div class="mb-3">
                     <label for="password" class="form-label">{{ __('Password') }}</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
-                           name="password" required autocomplete="current-password">
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
+                               name="password" required autocomplete="current-password">
+                        <button type="button" class="btn btn-outline-secondary" id="holdTogglePassword">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                     @error('password')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -62,4 +69,21 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById('holdTogglePassword').addEventListener('mousedown', function () {
+        const passwordField = document.getElementById('password');
+        passwordField.type = 'text';
+    });
+
+    document.getElementById('holdTogglePassword').addEventListener('mouseup', function () {
+        const passwordField = document.getElementById('password');
+        passwordField.type = 'password';
+    });
+
+    document.getElementById('holdTogglePassword').addEventListener('mouseleave', function () {
+        const passwordField = document.getElementById('password');
+        passwordField.type = 'password';
+    });
+</script>
 @endsection

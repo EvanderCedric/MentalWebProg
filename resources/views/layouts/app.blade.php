@@ -88,11 +88,16 @@
                                     <a class="dropdown-item">Status: {{ Auth::user()->is_admin ? 'Admin' : 'User' }}</a>
                                 </li>
                             @endauth
-                            @if(Auth::user()->is_admin)
+
+
+                            @if(Auth::check() && Auth::user()->is_admin)
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('admin.table') }}">Admin Table</a>
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 </li>
                             @endif
+
+
+
                             <li>
                                 <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profile</a>
                             </li>

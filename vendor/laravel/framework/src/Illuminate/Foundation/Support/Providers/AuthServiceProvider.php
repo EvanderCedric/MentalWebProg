@@ -52,14 +52,12 @@ class AuthServiceProvider extends ServiceProvider
      * @return void
      */
 
-    public function boot()
-    {
-        $this->registerPolicies();
-    
-        // Gate for checking if user is admin
-        Gate::define('is-admin', function ($user) {
-            return $user->is_admin;
-        });
-    }
-    
+     public function boot()
+     {
+         $this->registerPolicies();
+     
+         Gate::define('is-admin', function (User $user) {
+             return $user->is_admin; // Adjust if the column name is `is_admin`.
+         });
+     }
 }

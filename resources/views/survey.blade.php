@@ -18,7 +18,7 @@
         <!-- Survey Section -->
         <section id="about" class="section text-center custom-bg-greyish">
             <div class="container d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 40rem;">
                         <div class="card-body text-center">
                             <h5 class="card-title">Start Survey</h5>
                             <p class="card-text">Take the first step to assess your mental health and well-being.</p>

@@ -21,9 +21,10 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
-            'password' => Hash::make('adminpassword'),
-            'is_admin' => true,  // Set admin flag
+            'email_verified_at' => now(),
+            'password' => Hash::make('admin123'),
             'remember_token' => Str::random(10),
+            'is_admin' => true, 
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -32,13 +33,14 @@ class UserSeeder extends Seeder
         $faker = Faker::create();
 
         // 5 fake users
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             DB::table('users')->insert([
                 'name' => $faker->name,
                 'email' => $faker->unique()->safeEmail,
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'), 
                 'remember_token' => Str::random(10),  
+                'is_admin' => false, 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

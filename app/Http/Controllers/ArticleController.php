@@ -11,18 +11,16 @@ class ArticleController extends Controller
     /**
      * @return void
      */
-
-     public function index()
-     {
+    public function index()
+    {
+        // Fetch the latest 3 articles from the database
         $article = Article::latest()->take(3)->get();
-         return view('home', compact('article'));
-     }
-
-     public function indexhome()
-     {
-        $article = Article::latest()->take(3)->get();
-         return view('home', compact('article'));
-     }
+    
+        // Pass only $article to the view
+        return view('home', compact('article'));
+    }
+    
+    
 
      public function artindex($id)
      {
