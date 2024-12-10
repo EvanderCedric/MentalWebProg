@@ -3,7 +3,10 @@
 @section('content')
     <div class="container">
         <h2 class="text-center mb-4">Survey Results</h2>
-
+        <!-- Back Button -->
+        <div class="d-flex justify-content-start mb-4">
+            <a href="/survey" class="btn btn-outline-primary">Back</a>
+        </div>
         <!-- Display the survey results -->
         <table class="table">
             <thead>

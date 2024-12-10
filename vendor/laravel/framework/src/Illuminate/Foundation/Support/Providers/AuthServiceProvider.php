@@ -57,7 +57,7 @@ class AuthServiceProvider extends ServiceProvider
          $this->registerPolicies();
      
          Gate::define('is-admin', function (User $user) {
-             return $user->is_admin; // Adjust if the column name is `is_admin`.
+             return $user->is_admin; 
          });
      }
 }

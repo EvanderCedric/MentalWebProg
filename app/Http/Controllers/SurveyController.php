@@ -18,7 +18,6 @@ class SurveyController extends Controller
     // Handle the form submission
     public function store(Request $request)
     {
-        dd($request->all());
         $validated = $request->validate([
             'responses.*' => 'required|in:1,2,3,4,5',
         ]);
@@ -39,11 +38,10 @@ class SurveyController extends Controller
         $questions = Question::with('responses')->get();
     
         $responses = $questions->map(function ($question) {
-            // Calculate average response for each question
             $averageResponse = $question->responses->avg('answer');
             return [
                 'question' => $question,
-                'average_response' => round($averageResponse, 2), // Round to 2 decimal places
+                'average_response' => round($averageResponse, 2), 
             ];
         });
     

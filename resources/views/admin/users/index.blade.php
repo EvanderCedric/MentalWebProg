@@ -6,8 +6,8 @@
 <link href="{{ asset('style.css') }}" rel="stylesheet">
 
 <!-- Back Button -->
-<div class="d-flex justify-content-start text-center" style="position: fixed; top: 110px; left: 10px; z-index: 1000;">
-    <a href="{{ url('/home') }}" class="btn btn-secondary">Back to Home</a>
+<div class="d-flex justify-content-start text-center">
+    <a href="{{ url('/home') }}" class="btn btn-primary">Back to Home</a>
 </div>
 
 

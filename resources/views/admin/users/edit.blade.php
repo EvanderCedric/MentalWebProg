@@ -7,7 +7,7 @@
 
 <div class="container mt-4">
     <!-- Back Button -->
-    <div class="d-flex justify-content-start text-center" style="position: fixed; top: 110px; left: 10px; z-index: 1000;">
+    <div class="d-flex justify-content-start text-center">
     <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Cancel</a>
     </div>
     <h1 class="mb-4">Edit User</h1>
