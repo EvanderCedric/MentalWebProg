@@ -41,4 +41,14 @@ class HomeController extends Controller
     //     }
     // }
     
+    public function langen()
+    {
+        App::setLocale('en'); // Ensure the locale is set
+    }
+    
+    public function langid()
+    {
+        App::setLocale('id'); // Ensure the locale is set
+    }
+    
 }
