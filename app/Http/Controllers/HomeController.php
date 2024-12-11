@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,14 @@ class HomeController extends Controller
         // Pass only $article to the view
         return view('home', compact('article'));
     }
-    
 
+
+    // public function setLanguage($lang)
+    // {
+    //     if (in_array($lang, ['en', 'id'])) { 
+    //         session(['locale' => $lang]); 
+    //         App::setLocale($lang); 
+    //     }
+    // }
+    
 }

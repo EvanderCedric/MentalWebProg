@@ -47,3 +47,12 @@ Route::middleware(['auth'])->group(function () {
 // User Profile Routes
 Route::get('/profile/edit', [UserController::class, 'edit'])->name('profile.edit'); 
 Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update'); 
+
+
+//lang
+
+// Route::get('/lang/{lang}', function ($lang) {
+
+//     session(['lang' => $lang]); 
+//     return redirect()->back();
+// })->name('change-language');

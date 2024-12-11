@@ -36,47 +36,58 @@
                             <a href="{{ url('/' . (request('search') ? '?search=' . request('search') : '')) }}" 
                             class="nav-link px-3 {{ Request::is('home') ? 'fw-bold text-secondary' : 'text-white' }}"
                             style="font-size: 24px; font-weight: bold;">
-                                Home
+                            {{ __('Home') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/catalog' . (request('search') ? '?search=' . request('search') : '')) }}" 
                             class="nav-link px-3 {{ Request::is('catalog') ? 'fw-bold text-secondary' : 'text-white' }}"
                             style="font-size: 24px; font-weight: bold;">
-                                Catalog
+                            {{ __('Catalog') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/survey' . (request('search') ? '?search=' . request('search') : '')) }}" 
                             class="nav-link px-3 {{ Request::is('survey') ? 'fw-bold text-secondary' : 'text-white' }}"
                             style="font-size: 24px; font-weight: bold;">
-                                Survey
+                            {{ __('Survey') }}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/contactus' . (request('search') ? '?search=' . request('search') : '')) }}" 
                             class="nav-link px-3 {{ Request::is('contactus') ? 'fw-bold text-secondary' : 'text-white' }}"
                             style="font-size: 24px; font-weight: bold;">
-                                Contact Us
+                            {{ __('Contact Us') }}
                             </a>
                         </li>
                         <li class="nav-item flex-grow-1 d-flex">
                             <form action="{{ route('catalog') }}" method="GET" role="search" class="d-flex align-items-center w-100" style="max-width: 500px; margin-left: auto;">
                                 <input type="search" name="search" class="form-control form-control-dark flex-grow-1" 
-                                    placeholder="Search..." 
+                                    placeholder="..." 
                                     aria-label="Search" 
                                     value="{{ $search ?? '' }}" 
                                     style="min-width: 200px;">
-                                <button type="submit" class="btn btn-outline-light ms-2">Search</button>
+                                <button type="submit" class="btn btn-outline-light ms-2">
+                                {{ __('Search') }}
+                                </button>
                             </form>
                         </li>
                     </ul>
 
+
+
+
                     <!-- Authentication Links -->
                     <div class="text-end">
                     @guest
-                        <button type="button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline-light me-2">Login</button>
-                        <button type="button" onclick="window.location.href='{{ route('register') }}'" class="btn btn-warning">Sign-up</button>
+
+                        <button type="button" onclick="window.location.href='{{ route('login') }}'" class="btn btn-outline-light me-2">
+                        {{ __('Login') }}
+                        </button>
+
+                        <button type="button" onclick="window.location.href='{{ route('register') }}'" class="btn btn-warning">
+                        {{ __('Signup') }}
+                        </button>
                     @else
                     <div class="dropdown">
                         <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,14 +103,14 @@
 
                             @if(Auth::check() && Auth::user()->is_admin)
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">{{ __('Manage User') }}</a>
                                 </li>
                             @endif
 
 
 
                             <li>
-                                <a class="dropdown-item" href="{{ route('profile.edit') }}">Edit Profile</a>
+                                <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit Profile') }}</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
