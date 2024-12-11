@@ -26,7 +26,7 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-between px-3">
                     
                     <!-- Logo -->
-                    <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                         <img src="{{ asset('img/logo2.png') }}" alt="Logo" width="70" height="70" class="me-2">
                     </a>
                     
