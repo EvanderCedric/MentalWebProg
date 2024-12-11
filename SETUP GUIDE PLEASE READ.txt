@@ -13,4 +13,7 @@ COPY THIS ALL IN THE TERMINAL
     php artisan db:seed --class=QuestionSeeder
     php artisan db:seed --class=UserSeeder
 
-php artisan serve
+    php artisan serve
+
+
+this should allow to project to run properly
