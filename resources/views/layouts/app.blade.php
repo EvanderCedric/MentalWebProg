@@ -15,8 +15,10 @@
 
     <!-- Styles -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('style.css') }}" rel="stylesheet">
     
 </head>
 <body>

@@ -6,12 +6,15 @@
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
-        { "src": "/(.*)", "dest": "/api/index.php" }
+        { "src": "/(.*)", "dest": "/api/index.php" },
+        { "src": "/img/(.*)","dest": "/public/img/"},
+        { "src": "style.css","dest": "/public/style.css"}
     ],
     "public": true,
     "buildCommand": "vite build",
     "outputDirectory": "public",
     "env": {
+        "APP_NAME":"Open Minds",
         "APP_ENV": "production",
         "APP_DEBUG": "false",
         "APP_URL": "https://yourproductionurl.com",
