@@ -28,8 +28,8 @@
         "DB_CONNECTION": "mysql",
         "DB_HOST": "kh5kw.h.filess.io",
         "DB_PORT": "3307",
-        "DB_DATABASE": "mentalwebprog",
-        "DB_USERNAME": "mentalwebprog",
+        "DB_DATABASE": "mentalwebprog_gunstomach",
+        "DB_USERNAME": "mentalwebprog_gunstomach",
         "DB_PASSWORD": "20205d2d5ff14c4d1d548c31c42dd36a4f21ef71"
     }
 }
