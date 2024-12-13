@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
                 'email' => $faker->unique()->safeEmail,
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'), 
-                'remember_token' => Str::random(10),  
+                'remember_token' => Str::random(60),  
                 'is_admin' => false, 
                 'created_at' => now(),
                 'updated_at' => now(),
