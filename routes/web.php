@@ -33,7 +33,7 @@ Route::get('/surveypage', [SurveyController::class, 'index'])->name('surveypage.
 Route::post('/surveypage', [SurveyController::class, 'store'])->name('surveypage.store');  
 Route::get('/surveyresults', [SurveyController::class, 'results'])->name('surveyresults');  
 
-// Route to view responses for a specific question
+// Question
 Route::get('/question/{questionId}/responses', [SurveyController::class, 'viewResponse'])->name('survey.viewResponses');
 
 // Admin
